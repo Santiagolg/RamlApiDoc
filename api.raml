@@ -1,0 +1,110 @@
+#%RAML 1.0
+title: Nahual Project
+version: v1
+baseUri: localhost:8080/
+types:
+  company: object
+  graduated: object
+  node: object
+  interview: object
+/graduated:
+  displayName: graduated
+  description: graduados del Proyecto Nahual
+  get:
+    description: Devuelve una coleccion de Graduateds
+    queryParameters:
+      año:
+        type: number
+        default: -1
+      mes:
+        type: number
+        default: -1
+      dia:
+        type: number
+        default: -1
+      nodeId:
+        type: number
+        default: -1
+
+    responses:
+      200:
+        body:
+          application/json:
+            example: |
+              {
+                "message" : "Hello World"
+              }
+  post:
+    responses:
+      200:
+        body:
+          application/json:
+    queryParameters:
+      name:
+        type: string
+        required: true
+      nodeId:
+        type: number
+        required: true
+  /{id}:
+          delete:
+          get:
+/company:
+  get:
+    queryParameters:
+      name:
+        type: string
+        required: true
+        default: null
+  post:
+    queryParameters:
+      name:
+        type: string
+        required: true
+      contactName:
+        type: string
+        required: true
+  /{id}:
+    get:
+    delete:
+/node:
+  get:
+    queryParameters:
+      date:
+        type: string
+        default: null
+      node:
+        type: string
+        default: null
+  post:
+    queryParameters:
+      name:
+        type: string
+        required: true
+      address:
+        type: string
+        required: true
+  /{id}:
+    get:
+
+/interview:
+  get:
+    queryParameters:
+      order:
+        type: string
+        default: null
+      año:
+        type: number
+        default: -1
+      mes:
+        type: number
+        default: -1
+      dia:
+        default: -1
+        type: number
+      gId:
+        type: number
+        default: -1
+  post:
+  /{id}:
+    get:
